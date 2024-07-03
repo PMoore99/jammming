@@ -1,38 +1,69 @@
-.App {
+.arsenal-regular {
+  font-family: "Arsenal", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.arsenal-bold {
+  font-family: "Arsenal", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.arsenal-regular-italic {
+  font-family: "Arsenal", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.arsenal-bold-italic {
+  font-family: "Arsenal", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.space-grotesk {
+  font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.oswald {
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 24px;
+  background-color: rgb(4, 41, 61);
+  color: honeydew;
   text-align: center;
+  font-family: "Arsenal", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background-image: linear-gradient(rgba(4, 41, 61, 0.9),
+      rgba(34, 13, 71, 0.9)), url("./images/music-6954018.jpg");
+  background-position: right bottom;
+  background-size: 100% 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-repeat: no-repeat;
+  padding-top: 2%;
+  margin: -0.5rem;
+  overflow-x: hidden;
+  caret-color: transparent;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  gap: 3%;
+  grid-column-start: 2;
 }
