@@ -32,7 +32,7 @@ function App() {
       const newToken = window.location.href.match(/=([^&]*)/)[1];
       window.localStorage.setItem("token", newToken);
       setAccessToken(newToken);
-    } else if (!oldToken || window.location.href === "https://jammming-test.netlify.app:3000/") {
+    } else if (!oldToken || window.location.href === "https://jammming-test.netlify.app:3000") {
       tokenFlag.current = true;
     }
     else {
