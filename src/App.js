@@ -28,11 +28,11 @@ function App() {
 
   useEffect(() => {
     const oldToken = window.localStorage.getItem("token");
-    if (window.location.href.match("https://jammming-test.netlify.app:443/#access_token")) {
+    if (window.location.href.match("https://jammming-test.netlify.app/#access_token")) {
       const newToken = window.location.href.match(/=([^&]*)/)[1];
       window.localStorage.setItem("token", newToken);
       setAccessToken(newToken);
-    } else if (!oldToken || window.location.href === "https://jammming-test.netlify.app:443") {
+    } else if (!oldToken || window.location.href === "https://jammming-test.netlify.app") {
       tokenFlag.current = true;
     }
     else {
