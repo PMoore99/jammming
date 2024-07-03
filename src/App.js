@@ -28,11 +28,11 @@ function App() {
 
   useEffect(() => {
     const oldToken = window.localStorage.getItem("token");
-    if (window.location.href.match("http://localhost:3000/#access_token") || window.location.href.match("http://192.168.1.11:3000/#access_token")) {
+    if (window.location.href.match("https://jammming-test.netlify.app:3000/#access_token")) {
       const newToken = window.location.href.match(/=([^&]*)/)[1];
       window.localStorage.setItem("token", newToken);
       setAccessToken(newToken);
-    } else if (!oldToken || window.location.href === "http://localhost:3000/" || window.location.href === "http://192.168.1.11:3000/") {
+    } else if (!oldToken || window.location.href === "https://jammming-test.netlify.app:3000/") {
       tokenFlag.current = true;
     }
     else {
@@ -249,24 +249,24 @@ function App() {
     };
 
     return await fetch("https://api.spotify.com/v1/me", searchParams)
-    .then(response => response.json())
-    .then(jsonResponse => {
-      const userId = jsonResponse.id;
-      // setCurrentUser(userId);
-      return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, createOnServerParams)
       .then(response => response.json())
       .then(jsonResponse => {
-        const playlistId = jsonResponse.id;
-        return fetch(`${spotifyApi}playlists/${playlistId}/tracks`, {
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + accessToken
-          },
-          method: "POST",
-          body: JSON.stringify({ uris: `spotify:track:${playlistUploadString}` })
-        });
+        const userId = jsonResponse.id;
+        // setCurrentUser(userId);
+        return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, createOnServerParams)
+          .then(response => response.json())
+          .then(jsonResponse => {
+            const playlistId = jsonResponse.id;
+            return fetch(`${spotifyApi}playlists/${playlistId}/tracks`, {
+              headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + accessToken
+              },
+              method: "POST",
+              body: JSON.stringify({ uris: `spotify:track:${playlistUploadString}` })
+            });
+          });
       });
-    });
   }
 
   useEffect(() => {
