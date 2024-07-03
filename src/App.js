@@ -18,7 +18,7 @@ function App() {
   const [albumPic, setAlbumPic] = useState("");
   const [displayedTracks, setDisplayedTracks] = useState([]);
   const [toggleComponents, setToggleComponents] = useState("");
-  const [currentUser, setCurrentUser] = useState("");
+  // const [currentUser, setCurrentUser] = useState("");
   const [playlist, setPlaylist] = useState([]);
   const [playlistName, setPlaylistName] = useState("Name");
   const [playlistDescription, setPlaylistDescription] = useState("Description");
@@ -252,7 +252,7 @@ function App() {
     .then(response => response.json())
     .then(jsonResponse => {
       const userId = jsonResponse.id;
-      setCurrentUser(userId);
+      // setCurrentUser(userId);
       return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, createOnServerParams)
       .then(response => response.json())
       .then(jsonResponse => {
